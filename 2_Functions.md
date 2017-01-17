@@ -3,13 +3,20 @@
 
 ### Variadics
 New feature introduced in PHP 5.6 that allowsto explicity denote a function as acepting a variable lenght argument list.
+
 ```php
 function f($arg1, ...$args) {
 }
 ```
 ### Argument unpacking
 Works on the opposite way of variadics, allowing you to unpack an array-like structure into an argument list when calling a
-function or method
+function or method.
+
+```php
+$args = ['World', 'Universe', 'Hello World'];
+echo str_rplace(...$args); // Returns Hello Universe
+```
+
 ## Function definitions
 
 ### func_get_arg
@@ -21,11 +28,11 @@ mixed func_get_arg (int $arg_num)
 ### func_get_args
 Retrurn an array comprising a function's argument list.
 ```php
-array func_get_args ( void ) 
+array func_get_args ( void )
 ```
 
 ### func_num_args
 Returns the number of arguments passed to the function.
-```php 
+```php
 int funct_num_args ( void )
 ```
