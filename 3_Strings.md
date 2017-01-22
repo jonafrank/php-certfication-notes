@@ -24,6 +24,44 @@ The `strstr()` returns the portion of the haystack that sarts with the needle in
 * [`stristr()`](http://php.net/manual/en/function.stristr.php)
 * [`strrpos()`](http://php.net/manual/en/function.strrpos.php)
 
+## Matching against a Mask
+You can use the [`strspn`](http://php.net/manual/en/function.strspn.php) function to match a string against a "whitelist" mask of allowed characters. Returns the length of the initial
+segment of the string that contains any of the characters specified in the mask.
+
+```php
+ $string = '133445abcdef';
+ $mask = '12345'
+ echo strspn($string, $mask); // Outputs 6
+```
+> The [`strcspn()`](http://php.net/manual/en/function.strcspn.php) function works just like `strspn()`, but uses a blacklist approach instead.
+
+Both `strspn()` and `strcspn()` accept two optional parameters that define the starting position and the length of the string to examine.
+
+## Simple Search and Replace Operations
+Simple substitutions are performed using [`str_replace()`](http://php.net/manual/en/function.str-replace.php) --[`str_ireplace()`](http://php.net/manual/en/function.str-ireplace.php)
+for case insensitive-- and [`substr_replace()`](http://php.net/manual/en/function.substr-replace.php).
+
+```php
+// Outputs Hello Reader
+echo str_replace('World', 'Reader', 'Hello World');
+
+// Also outputs Hello Reader
+echo str-ireplace ('world', 'Reader', 'Hello Reader');
+```
+
+The function takes three parameters: a needle, a replacement string and a haystack. Optionally, you can specify a third parameter, passed by reference, that the function fill, upon return, with the number of substitutions made.
+
+If you need to search and replace more than one needle at a time, you can pass the first two arguments to `str_replace()` in the form of arrays.
+
+To replace a portion of the needle of which yo already know the starting and ending point, you can use `substr_replace()`.
+
+```php
+echo substr_replace( 'Hello World', 'Reader', 6);
+echo substr-replace(
+  'Canned tomatoes are good', 'potatoes', 7, 8
+);
+```
+the third argument is our starting point. You can also pass an optional fourth parameter to define the end of the substring that will be replaced.
 
 ## Functions Definitions
 
