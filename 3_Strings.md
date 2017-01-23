@@ -10,7 +10,7 @@ $string = 'abcdef';
 echo $string[1]; // Outputs 'b'
 ```
 
-## Simple searching functionality.
+### Simple searching functionality.
 
 The simplest way to search inside a string is to use the `strpos()` and `strstr()` families of functions. The former allows yo to find the position of a substring (needle) inside a string
 (haystack). It returns either the numeric position of the needle's first occurrence within the haystack, or `false`.
@@ -24,7 +24,7 @@ The `strstr()` returns the portion of the haystack that sarts with the needle in
 * [`stristr()`](http://php.net/manual/en/function.stristr.php)
 * [`strrpos()`](http://php.net/manual/en/function.strrpos.php)
 
-## Matching against a Mask
+### Matching against a Mask
 You can use the [`strspn`](http://php.net/manual/en/function.strspn.php) function to match a string against a "whitelist" mask of allowed characters. Returns the length of the initial
 segment of the string that contains any of the characters specified in the mask.
 
@@ -37,7 +37,7 @@ segment of the string that contains any of the characters specified in the mask.
 
 Both `strspn()` and `strcspn()` accept two optional parameters that define the starting position and the length of the string to examine.
 
-## Simple Search and Replace Operations
+### Simple Search and Replace Operations
 Simple substitutions are performed using [`str_replace()`](http://php.net/manual/en/function.str-replace.php) --[`str_ireplace()`](http://php.net/manual/en/function.str-ireplace.php)
 for case insensitive-- and [`substr_replace()`](http://php.net/manual/en/function.substr-replace.php).
 
@@ -62,6 +62,21 @@ echo substr-replace(
 );
 ```
 the third argument is our starting point. You can also pass an optional fourth parameter to define the end of the substring that will be replaced.
+
+### Extracting substrings
+
+[`substr()`](http://php.net/manual/en/function.substr.php) function allows you to extract a substring from a larger string. I takes three parameters: the string to be worked on, a
+starting index and optional length. The starting index can be specified as either a positive integer (meaning the index of a character in the string starting from the beginning) or a
+negative integer (meaning the index of a character starting from the end).
+
+```php
+$x = '1234567';
+echo substr($x, 0, 3); // 123
+echo substr($x, 1, 1); // 2
+echo substr($x, -2) // 67
+echo substr($x, 1) // 234567
+echo substr($x -2, 1) // 6 
+```
 
 ## Functions Definitions
 
